@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <button class="start">Start</button>
+  <h1></h1>
+  <button class="stop">stop </button>  
+</body>
+<script>
+    let ka = 100000
+    let blank
+    let number  = ''; 
+    if (ka <= 0)
+    {
+        clearInterval(blank)
+    }
+    document.querySelector('.start').addEventListener('click',function () {
+        blank = setInterval(() => {
+            const hex = '0123456789ABCDEF'
+            /*number = '#'
+            for(let i = 0 ; i < 6 ; i++) {
+                number += hex[Math.floor(Math.random()*16)]
+            }*/
+            
+            //number = Math.floor(Math.random()*10)
+            // number--
+            ka--
+            document.querySelector('h1').innerHTML = ka  
+            // if (ka = 0 )
+            // {
+            //     clearInterval(blank)
+            // }
+            
+        }, 10000);
+        
+    })
+    document.querySelector('.stop').addEventListener('click',function () {
+        clearInterval(blank)
+    })
+</script>
+</html>
