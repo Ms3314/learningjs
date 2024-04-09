@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(21, 19, 19); color: aliceblue;">
+    <button class="starter">Magic</button>
+    <p class="name"></p>
+    <img src="" alt="">
+    <p class="bio"></p>
+    <p class="follow"></p>
+</body>
+<script>
+    let username
+    let followers
+    let image
+    let bio
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    const hmx = new XMLHttpRequest()
+    hmx.open('GET',requestUrl)
+    hmx.onreadystatechange = function() {
+        if (hmx.readyState == 4)
+        {
+            const data = JSON.parse(this.responseText)
+            console.log(data)
+            followers = (data.followers);
+            username = (data.name)
+            image = (data.avatar_url) 
+            bio = (data.bio)
+            console.log(username)
+           
+        }}
+        document.querySelector('.starter').addEventListener('click',()=>{
+            document.querySelector('.name').innerHTML = username
+            document.querySelector('img').src = image
+            document.querySelector('.follow').innerHTML = followers
+            document.querySelector('.bio').innerHTML = bio
+            
+        })
+    hmx.send()
+</script>
+</html>
